@@ -1,0 +1,45 @@
+\section{Braidings and R-matrices}
+    \subsection{Braided monoidal categories}
+
+    \subsection{R-matrices}
+        \begin{convention}
+            Throughout, suppose that $(\C, \tensor, \1)$ is a \textit{braided} $k$-linear monoidal category.
+        \end{convention}
+    
+        \begin{definition}[R-matrices] \label{def: R_matrices}
+            An \textbf{R-matrix} on an object $V \in \Ob(\C)$ is an automorphism $c \in \Aut(V \tensor V)$ satisfying the so-called \textbf{Yang-Baxter equation}:
+                $$(c \tensor \id_V) \circ (\id_V \tensor c) \circ (c \tensor \id_V) = (\id_V \tensor c) \circ (c \tensor \id_V) \circ (\id_V \tensor c) \in \Aut(V \tensor V \tensor V)$$
+        \end{definition}
+        \begin{example}
+            For each object $V \in \Ob(\C)$, the twist map:
+                $$\tau_{V, V}: V \tensor V \xrightarrow[]{\cong} V \tensor V$$
+            will be an example of an R-matrix. For a proof, consider the following Coxeter relation in the symmetric group $S_3 \cong \Aut(\{1, 2, 3\})$:
+                $$(12)(23)(12) = (23)(12)(23)$$    
+        \end{example}
+        \begin{remark}
+            Finding all solutions to the Yang-Baxter equation is a very difficult task. To see why, specialise to the case $\C := k\mod^{\fr}$ and write the equation out in terms of a fixed basis. 
+            
+            Nevertheless, it is known how one might generate new solutions from a previously known one (e.g. $c = \tau_{V, V}$). In particular, if $V \in \Ob(\C)$ is an object and $c \in \Aut(V \tensor V)$ is an R-matrix then the following automorphisms on $V \tensor V$ will also be R-matrices:
+                $$c^{-1}, \lambda c, \tau_{V, V} \circ c \circ \tau_{V, V}$$
+            wherein $\lambda \in k$ is some scalar.
+        \end{remark}
+        \begin{example}[The Yang-Baxter equation for finite-dimensional simple $\rmU_q(\sl_2)$-modules]
+            Let us write $\rmU_q := \rmU_q(\sl_2(k))$ and for any root lattice element $\lambda = \e q^n\in k$ (with $\e = \pm 1$), write $\simple_q(n) = \simple_q(\lambda)$ to mean the corresponding $(n + 1)$-dimensional simple $\rmU_q$-module of highest-weight $\lambda$. For details on the theory of highest-weight $\rmU_q$-modules, we refer the reader to \cite[Chapters VI and VII]{kassel_quantum_groups}. Also, for convenience, we shall also assume for this example that $k$ is algebraically closed and of characteristic $0$. 
+            
+            We now analyse certain R-matrices in the braided monoidal category of finite-dimensional $k$-linear $\rmU_q$-representations. We caution the reader that it is important to view these $\rmU_q$-representations as certain $\rmU_q$-modules, since R-matrices thereon are not simply certain $k$-linear automorphisms but $\rmU_q$-linear automorphisms. To that end, recall the quantum Clebsch-Gordon formula (cf. \cite[Theorem VII.7.1]{kassel_quantum_groups}), which tells us that the tensor product $\simple_q(n) \tensor_k \simple_q(m)$ is a semi-simple $\rmU_q$-module in the following manner:
+                $$\simple_q(n) \tensor_k \simple_q(m) \cong \bigoplus_{0 \leq p \leq m} \simple_q(n + m - 2p)$$
+            By specialising to the case wherein $m = n$, one gets that:
+                $$\simple_q(n) \tensor_k \simple_q(n) \cong \bigoplus_{0 \leq p \leq n} \simple_q(2(n - p))$$
+            and so $\rmU_q$-module automorphisms on $\simple_q(n) \tensor_k \simple_q(n)$ are nothing but $\rmU_q$-module automorphisms on $\bigoplus_{0 \leq p \leq m} \simple_q(2(n - p))$. Such automorphisms can thus be computed via examining their actions on the generators $v^{\lambda}_0 \in \simple_q(\lambda)$ of the simple (hence cyclic) $\rmU_q$-modules $\simple_q(\lambda)$ (for $\lambda \in \{\pm q^{ 2(n - p) }\}_{0 \leq p \leq n}$). In particular, one sees that any $\rmU_q$-module automorphism on $\simple_q(n) \tensor_k \simple_q(n)$ is necessarily diagonalisable. 
+            
+            Now, let us use the quantum Clebsch-Gordon formula again to obtain the following direct sum decomposition of $\simple_q(n) \tensor \simple_q(n) \tensor \simple_q(n)$:
+                $$
+                    \begin{aligned}
+                        \simple_q(n) \tensor_k \simple_q(n) \tensor_k \simple_q(n) & \cong \simple_q(n) \tensor_k \left( \bigoplus_{0 \leq p \leq n} \simple_q(2(n - p)) \right)
+                        \\
+                        & \cong \bigoplus_{0 \leq p \leq n} ( \simple_q(n) \tensor_k \simple_q(2(n - p)) )
+                        \\
+                        & \cong \bigoplus_{0 \leq p \leq n} \bigoplus_{0 \leq j \leq 2(n - p)} \simple_q(n + 2(n - p - j))
+                    \end{aligned}
+                $$
+        \end{example}

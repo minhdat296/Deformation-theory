@@ -1,3 +1,4 @@
+\renewcommand{\implies}{\Rightarrow}
 \renewcommand{\cong}{\simeq}
 \newcommand{\ladjoint}{\dashv}
 \newcommand{\radjoint}{\vdash}
@@ -13,6 +14,10 @@
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
 \renewcommand{\setminus}{\smallsetminus}
+\newcommand{\punc}{\overset{\circ}}
+\renewcommand{\div}{\operatorname{div}}
+\newcommand{\grad}{\operatorname{grad}}
+\newcommand{\curl}{\operatorname{curl}}
 \makeatletter
 \DeclareRobustCommand{\cev}[1]{%
   {\mathpalette\do@cev{#1}}%
@@ -107,7 +112,6 @@
 \newcommand{\frako}{\mathfrak{o}}
 \newcommand{\so}{\mathfrak{so}}
 \newcommand{\su}{\mathfrak{su}}
-%\newcommand{\fraku}{\mathfrak{u}}
 \newcommand{\Spec}{\operatorname{Spec}}
 \newcommand{\Spf}{\operatorname{Spf}}
 \newcommand{\Spm}{\operatorname{Spm}}
@@ -242,15 +246,15 @@
 \newcommand{\Sub}{\mathrm{Sub}} %subobjects
 \newcommand{\Ideals}{\mathrm{Ideals}}
 \newcommand{\Isoc}{\mathrm{Isoc}} %isocrystals
-\newcommand{\Ban}{\-\mathrm{Ban}} %Banach spaces
-\newcommand{\Fre}{\-\mathrm{Fr\acute{e}}} %Frechet spaces
+\newcommand{\Ban}{\mathrm{Ban}} %Banach spaces
+\newcommand{\Fre}{\mathrm{Fr\acute{e}}} %Frechet spaces
 \newcommand{\Ch}{\mathrm{Ch}} %chain complexes
 \newcommand{\Pure}{\mathrm{Pure}}
 \newcommand{\Mixed}{\mathrm{Mixed}}
 \newcommand{\Hodge}{\mathrm{Hodge}} %Hodge structures
 \newcommand{\Mot}{\mathrm{Mot}} %motives
 \newcommand{\KL}{\mathrm{KL}} %category of Kazhdan-Lusztig modules
-\newcommand{\Pres}{\mathrm{Pres}} %presentable categories
+\newcommand{\Pres}{\mathrm{Pr}} %presentable categories
 \newcommand{\Noohi}{\mathrm{Noohi}} %category of Noohi groups
 \newcommand{\Inf}{\mathrm{Inf}}
 \newcommand{\LPar}{\mathrm{LPar}} %Langlands parameters
@@ -262,6 +266,8 @@
 \newcommand{\Higgs}{\mathrm{Higgs}}
 \newcommand{\BGG}{\mathrm{BGG}}
 \newcommand{\Poiss}{\mathrm{Poiss}}
+\newcommand{\Fact}{\mathrm{Fact}} %factorisation
+\newcommand{\Chr}{\mathrm{Chr}} %chiral
 
 \newcommand{\Aut}{\mathrm{Aut}}
 \newcommand{\Inn}{\mathrm{Inn}}
@@ -274,7 +280,6 @@
 \newcommand{\Stab}{\mathrm{Stab}}
 \newcommand{\Cent}{\mathrm{Cent}}
 \newcommand{\Norm}{\mathrm{Norm}}
-\newcommand{\stab}{\mathfrak{stab}}
 \newcommand{\cent}{\mathfrak{cent}}
 \newcommand{\norm}{\mathfrak{norm}}
 \newcommand{\Rad}{\operatorname{Rad}}
@@ -301,13 +306,14 @@
 \newcommand{\Nerve}{\mathrm{N}}
 \newcommand{\Hol}{\mathrm{Hol}} %holomorphic functions %holonomy groups
 \newcommand{\Bi}{\mathrm{Bi}} %Bi for biholomorphic functions
-\newcommand{\chev}{\mathfrak{chev}} %chevalley relations
+\newcommand{\chev}{\operatorname{chev}}
 \newcommand{\bfLie}{\mathbf{Lie}} %non-reduced lie algebra associated to generalised cartan matrices
 \newcommand{\frakLie}{\mathfrak{Lie}} %reduced lie algebra associated to generalised cartan matrices
 \newcommand{\frakChev}{\mathfrak{Chev}} 
 \newcommand{\Rees}{\operatorname{Rees}}
 \newcommand{\Dr}{\mathrm{Dr}} %Drinfeld's quantum double 
 \newcommand{\frakDr}{\mathfrak{Dr}} %classical double of lie bialgebras
+\newcommand{\Tot}{\operatorname{Tot}} %total complexes
 
 \renewcommand{\projlim}{\varprojlim}
 \newcommand{\indlim}{\varinjlim}
@@ -329,6 +335,12 @@
 }
 \NewDocumentCommand{\hattensor}{e{_^}}{%
   \mathbin{\mathop{\hat{\otimes}}\displaylimits
+    \IfValueT{#1}{_{#1}}
+    \IfValueT{#2}{^{#2}}
+  }%
+}
+\NewDocumentCommand{\brevetensor}{e{_^}}{%
+  \mathbin{\mathop{\breve{\otimes}}\displaylimits
     \IfValueT{#1}{_{#1}}
     \IfValueT{#2}{^{#2}}
   }%
@@ -379,8 +391,12 @@
 \newcommand{\Spr}{\mathrm{Spr}} %the Springer map/sheaf
 \newcommand{\Refl}{\mathrm{Refl}} %reflection functor]
 \newcommand{\HH}{\mathrm{HH}} %Hochschild (co)homology
+\newcommand{\HC}{\mathrm{HC}} %cyclic (co)homology
 \newcommand{\Poinc}{\mathrm{Poinc}}
 \newcommand{\Simpson}{\mathrm{Simpson}}
+\newcommand{\Section}{\operatorname{Sect}}
+\newcommand{\Ran}{\operatorname{Ran}} %Ran space
+\newcommand{\quantumfields}{\operatorname{QFld}}
 
 \newcommand{\bbU}{\mathbb{U}}
 \newcommand{\V}{\mathbb{V}}
@@ -391,6 +407,7 @@
 \newcommand{\bfV}{\mathbf{V}}
 \newcommand{\C}{\mathcal{C}}
 \newcommand{\D}{\mathcal{D}}
+\newcommand{\scrD}{\mathscr{D}}
 \newcommand{\T}{\mathscr{T}} %Tate modules
 \newcommand{\calM}{\mathcal{M}}
 \newcommand{\calN}{\mathcal{N}}
@@ -399,6 +416,7 @@
 \newcommand{\A}{\mathbb{A}}
 \renewcommand{\P}{\mathbb{P}}
 \newcommand{\calL}{\mathcal{L}}
+\newcommand{\scrL}{\mathscr{L}}
 \newcommand{\E}{\mathcal{E}}
 \renewcommand{\H}{\mathbf{H}}
 \newcommand{\scrS}{\mathscr{S}}
@@ -425,14 +443,17 @@
 \renewcommand{\t}{\mathfrak{t}}
 \renewcommand{\r}{\mathfrak{r}}
 \newcommand{\fraku}{\mathfrak{u}}
+\newcommand{\fraky}{\mathfrak{y}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\frakw}{\mathfrak{w}}
 \newcommand{\frake}{\mathfrak{e}}
 \newcommand{\bbX}{\mathbb{X}}
-\newcommand{\frakw}{\mathfrak{w}}
 \newcommand{\frakG}{\mathfrak{G}}
 \newcommand{\frakH}{\mathfrak{H}}
 \newcommand{\frakE}{\mathfrak{E}}
 \newcommand{\frakF}{\mathfrak{F}}
 \newcommand{\g}{\mathfrak{g}}
+\newcommand{\frakl}{\mathfrak{l}}
 \newcommand{\h}{\mathfrak{h}}
 \renewcommand{\k}{\mathfrak{k}}
 \newcommand{\z}{\mathfrak{z}}
@@ -444,6 +465,7 @@
 \newcommand{\bbO}{\mathbb{O}}
 \newcommand{\scrA}{\mathscr{A}}
 \newcommand{\scrB}{\mathscr{B}}
+\newcommand{\scrE}{\mathscr{E}}
 \newcommand{\scrF}{\mathscr{F}}
 \newcommand{\scrG}{\mathscr{G}}
 \newcommand{\scrM}{\mathscr{M}}
@@ -467,6 +489,8 @@
 \renewcommand{\O}{\mathbb{O}}
 \newcommand{\calV}{\mathcal{V}}
 \newcommand{\scrR}{\mathscr{R}} %radical
+\newcommand{\sfR}{\mathsf{R}} %quantum R-matrices
+\newcommand{\sfr}{\mathsf{r}} %classical R-matrices
 \newcommand{\rmZ}{\mathrm{Z}} %centre of algebra
 \newcommand{\rmC}{\mathrm{C}} %centralisers in algebras
 \newcommand{\bfGamma}{\mathbf{\Gamma}}
@@ -504,10 +528,13 @@
 \newcommand{\bfv}{\mathbf{v}}
 \newcommand{\bfg}{\mathbf{g}}
 \newcommand{\frakV}{\mathfrak{V}}
-\newcommand{\frakv}{\mathfrak{v}}
 \newcommand{\bfn}{\mathbf{n}}
 \renewcommand{\o}{\mathfrak{o}}
-\newcommand{\bbDelta}{\amsmathbb{}}
+\newcommand{\standard}{\Delta}
+\newcommand{\costandard}{\nabla}
+\newcommand{\simple}{\bar{\Delta}}
+\newcommand{\cosimple}{\bar{\nabla}}
+\newcommand{\frakD}{\mathfrak{D}}
 
 \newcommand{\aff}{\mathrm{aff}}
 \newcommand{\ft}{\mathrm{ft}} %finite type
@@ -622,20 +649,27 @@
 \newcommand{\AR}{\mathrm{A\-R}}
 \newcommand{\cons}{\mathrm{c}} %constructible sheaves
 \newcommand{\tor}{\mathrm{tor}} %tor dimension
-\newcommand{\semisimple}{\mathrm{ss}}
 \newcommand{\connected}{\mathrm{connected}}
 \newcommand{\cg}{\mathrm{cg}} %compactly generated
 \newcommand{\nilp}{\mathrm{nilp}}
 \newcommand{\isg}{\mathrm{isg}} %isogenous
 \newcommand{\qisg}{\mathrm{qisg}} %quasi-isogenous
 \newcommand{\irr}{\mathrm{irr}} %irreducible represenations
-\newcommand{\simple}{\mathrm{simple}} %simple objects
 \newcommand{\indecomp}{\mathrm{indecomp}}
 \newcommand{\preproj}{\mathrm{preproj}}
 \newcommand{\preinj}{\mathrm{preinj}}
 \newcommand{\reg}{\mathrm{reg}}
-\renewcommand{\ss}{\mathrm{ss}}
+\newcommand{\semisimple}{\mathrm{ss}}
+\newcommand{\integrable}{\mathrm{int}}
 \newcommand{\s}{\mathfrak{s}}
+\newcommand{\elliptic}{\mathrm{ell}}
+\newcommand{\stab}{\mathrm{stab}}
+\newcommand{\disj}{\mathrm{disj}}
+\newcommand{\positive}{\mathrm{pos}} 
+\newcommand{\negative}{\mathrm{neg}} 
+\newcommand{\up}{\mathrm{up}} %upper
+\newcommand{\low}{\mathrm{low}} %lower
+\newcommand{\locallyconstant}{\mathrm{lconst}}
 
 %prism custom command
 \usepackage{relsize}

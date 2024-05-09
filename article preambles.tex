@@ -22,8 +22,8 @@
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 %\usepackage{mathpazo}
-%\usepackage{euler}
 \usepackage{eucal}
+\usepackage{eufrak}
 \usepackage{bbm}
 \usepackage{bm}
 \usepackage{csquotes}
@@ -57,6 +57,7 @@
 
 \usepackage[backend=biber, style=alphabetic, sorting=nty]{biblatex}
     \addbibresource{bibliography.bib}
+\renewbibmacro{in:}{}
 
 \raggedbottom
 
@@ -134,7 +135,7 @@
 \newtheorem{claim}{Claim}[section]
     \numberwithin{claim}{subsection}
 \newtheorem{question}{Question}[section]
-    \numberwithin{question}{section}
+    \numberwithin{question}{subsection}
 
 \theoremstyle{definition}
     \newtheorem{definition}{Definition}[section]
@@ -149,3 +150,5 @@
         \numberwithin{convention}{subsection}
     \newtheorem{corollary}{Corollary}[section]
         \numberwithin{corollary}{subsection}
+
+\numberwithin{equation}{section}

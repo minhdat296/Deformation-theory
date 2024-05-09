@@ -1,0 +1,83 @@
+\section{Reconstructing bialgebras from their representation categories}
+    \subsection{Fibre functors}
+        For the sake of fixing terminologies, let us recall a few relevant definitions.
+        \begin{definition}[Rigid monoidal categories] \label{def: rigid_monoidal_categories}
+            A monoidal category is said to be \textbf{rigid} if and only if every of its objects has two-sided duals. 
+        \end{definition}
+        \begin{definition}[(Multi-)ring categories] \label{def: ring_categories}
+            \cite[Definition 4.1.1]{EGNO} A \textbf{(multi-)ring category} is a locally finite $k$-linear monoidal category $(\C, \tensor, \1)$ on which the tensor product bifunctor $\tensor: \C \x \C \to \C$ is $k$-bilinear on morphisms and biexact, i.e. for all $V, V', V'' \in \Ob(\C)$, the natural map:
+                $$\C(V, V') \tensor_k \C(V', V'') \to \C(V, V'')$$
+            is $k$-linear. Without the local finiteness condition, we shall say \say{infinite (multi-)ring categories}.
+        \end{definition}
+        \begin{definition}[Tensor functors] \label{def: tensor_functors}
+            Let $\C, \D$ be multi-ring categories over $k$ and $F: \C \to \D$ be a monoidal functor. One says that $F$ is a \textbf{tensor functor} if and only if there is a monoidal natural isomorphism:
+                $$J_{-, -}: F(- \tensor -) \xrightarrow[]{\cong} F(-) \tensor F(-)$$
+            along with an isomorphism:
+                $$F(\1_{\C}) \cong \1_{\D}$$
+        \end{definition}
+        \begin{definition}[(Multi-)tensor categories] \label{def: tensor_categories}
+            \cite[Definition 4.1.1]{EGNO} A  \textbf{multi-tensor category} over a field $k$ is a locally finite $k$-linear abelian rigid monoidal category $(\C, \tensor, \1)$ on which the bifunctor:
+                $$\tensor: \C \x \C \to \C$$
+            is $k$-bilinear on morphisms. If, in addition, we have that $\C(\1, \1) \cong k$ then $\C$ will be called a \textbf{tensor category}. Without the local finiteness condition, we shall say \say{infinite (multi-)tensor categories}.
+        \end{definition}
+        \begin{proposition}[Biexactness of tensor products] \label{prop: biexactness_of_tensor_products}
+            \cite[Proposition 4.2.1]{EGNO} Let $(\C, \tensor, \1)$ be a multi-tensor category. Then the bifunctor $\tensor: \C \x \C \to \C$ will always be biexact. 
+        \end{proposition}
+            \begin{proof}
+                This is a direct consequence of the fact that multi-tensor categories are rigid as monoidal categories. 
+            \end{proof}
+        \begin{corollary}
+            (Infinite) (multi-)tensor categories are special cases of (infinite) (multi-)ring categories.
+        \end{corollary}
+        
+        Now that all the etymological background materials have been put into place, let us actually begin discussing the so-called \say{Tannakian reconstruction theory}. 
+        \begin{convention}
+            From now on until the end of this subsection, let $(\C, \tensor, \1)$ be a ring category over $k$. 
+        \end{convention}
+        The following definition bears significant resemblances with the notion of fibre functors in Grothendieck's interpretation of Galois theory (cf. \cite[Expos\'e V]{SGA1}).
+        \begin{definition}[Fibre functors] \label{def: fibre_functors}
+            A fibre functor on $(\C, \tensor, \1)$ is an \textit{exact} tensor functor:
+                $$F: \C \to k\mod^{\fr}$$
+            (wherein $k\mod^{\fr}$ is a tensor category over $k$ in the usual manner).
+        \end{definition}
+        The following proposition, though very important, is more-or-less self-evident. 
+        \begin{proposition}[Fibre functors for representation categories of associative algebras] \label{prop: fibre_functors_for_representation_categories_of_associative_algebras}
+            Let $A$ be an associative $k$-algebra. Then, the forgetful functor:
+                $$A\mod \xrightarrow[]{F_A := \Hom_A(A, -)} k\mod^{\fr}$$
+            is a fibre functor. Furthermore, we have that:
+                $$A \cong \End_{\Mon\Nat}(F_A)$$
+            as associative $k$-algebras. 
+        \end{proposition}
+        Let us see what happens when we consider $\C$ to be the representation category of a bialgebra over $k$. Again, the proposition is somewhat self-evident. For details, see the discussion immediately preceding \cite[Section 5.2]{EGNO} as well as \cite[Section 5.3]{EGNO}.
+        \begin{remark}[Tensor products of hom-sets]
+            One thing that we would like to remind the reader about is that, should $(H, \mu, \eta, \Delta, \e)$ be a $k$-bialgebra and if $V, W, V', W'$ are $H$-modules then the canonical map:
+                $$\Hom_H(V, W) \tensor_k \Hom_H(V', W') \to \Hom_H(V \tensor_k W, V' \tensor_k W')$$
+            is generally a monomorphism of $H \tensor_k H^{\op}$-modules, and is furthermore an isomorphism whenever $V, V'$ are \textit{free} over $H$. When $H$ is furthermore a Hopf algebra with (invertible) antipode $\sigma: H \to H^{\op}$ then the above becomes an monomorphism (respectively, isomorphism) of $H$-modules via the composite algebra homomorphism:
+                $$H \tensor_k H^{\op} \xrightarrow[\cong]{\id_H \tensor \sigma^{-1}} H \tensor_k H \xrightarrow[]{\mu} H$$
+        \end{remark}
+        \begin{proposition}[Fibre functors for representation categories of bialgebras] \label{prop: fibre_functors_for_representation_categories_of_bialgebras}
+            Let $(H, \mu, \eta, \Delta, \e)$ be a $k$-bialgebra and consider the forgetful functor:
+                $$H\mod \xrightarrow[]{F_H := \Hom_H(H, -)} k\mod^{\fr}$$
+            which we know by proposition \ref{prop: fibre_functors_for_representation_categories_of_associative_algebras} above to be tensorial by virtue of being a fibre functor; denote this tensor structure on $F_H$ by:
+                $$F_H(- \tensor_H -) \xrightarrow[\cong]{J_{-, -}} F_H(-) \tensor_k F_H(-)$$
+            Then:
+                $$H \cong \End_{\Mon\Nat}(F_H)$$
+            not simply as $k$-algebras, but furthermore as $k$-bialgebras; the $k$-coalgebra structure on $\End_{\Mon\Nat}(F_H)$ is induced by that of $H$, via the Deligne tensor product $F_H \boxtimes F_H$, in the sense that there are the following $k$-algebra homomorphisms:
+                $$\End_{\Mon\Nat}(F_H) \xrightarrow[]{\cong} H \xrightarrow[]{\Delta} H \tensor_k H \xrightarrow[]{\cong} \End_{\Mon\Nat}(F_H) \tensor_k \End_{\Mon\Nat}(F_H) \xrightarrow[]{J_{-, -}^{-1}} \End_{\Mon\Nat}(F_H \boxtimes_k F_H)$$
+                $$\End_{\Mon\Nat}(F_H) \xrightarrow[]{\cong} H \xrightarrow[]{\e} k$$
+        \end{proposition}
+        \begin{corollary}[Fibre functors for representation categories of Hopf algebras] \label{coro: fibre_functors_for_representation_categories_of_hopf_algebras}
+            Let $(H, \mu, \eta, \Delta, \e, \sigma)$ be a Hopf $k$-algebra and consider the forgetful functor:
+                $$H\mod \xrightarrow[]{F_H := \Hom_H(H, -)} k\mod^{\fr}$$
+            Then there will be an isomorphism of Hopf $k$-algebra isomorphism:
+                $$H \cong \End_{\Mon\Nat}(F_H)$$
+            Particularly, the antipode on $H$ is given by:
+                $$\End_{\Mon\Nat}(F_H) \xrightarrow[]{\cong} H \xrightarrow[]{\sigma} H^{\op} \xrightarrow[]{\cong} \End_{\Mon\Nat}(F_H)^{\op}$$
+        \end{corollary}
+            \begin{proof}
+                True because Hopf $k$-algebras form a full subcategory of that of $k$-bialgebras. 
+            \end{proof}
+    
+    \subsection{Quasi-cocommutative Hopf algebras}
+    
+    \subsection{Quantum doubles of finite-dimensional Hopf algebras and Yetter-Drinfeld modules}
