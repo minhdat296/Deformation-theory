@@ -1,0 +1,42 @@
+\input{article preambles}
+
+\setcounter{section}{-1}
+
+\input{commands}
+
+\begin{document}
+
+    \title{Vertex algebras}
+    
+    \author{Dat Minh Ha}
+    \maketitle
+    
+    \begin{abstract}
+        
+    \end{abstract}
+    
+    {
+      \hypersetup{} 
+      %\dominitoc
+      \tableofcontents %sort sections alphabetically
+    }
+
+    \section{Introduction}
+        \begin{convention}
+            Everything will be over an algebraically closed field $k$ of characteristic $0$.
+            
+            $(-)^*$ will be used for denoting full $k$-linear duals, while graded-duals will be denoted by $(-)^{\star}$.
+        \end{convention}
+
+    \input{Vertex algebras/definition_and_examples_of_VOAs}
+
+    \input{Vertex algebras/OPEs}
+
+    \begin{appendices}
+        \input{Setup files and appendices/appendix_formal_distributions}
+    \end{appendices}
+	
+    \addcontentsline{toc}{section}{References}
+    \printbibliography
+
+\end{document}

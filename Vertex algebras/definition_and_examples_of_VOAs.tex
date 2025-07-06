@@ -1,0 +1,47 @@
+\section{Vertex algebras}
+    \subsection{The definition of VOAs}
+        The following notion, to our knowledge, was first defined by Victor Kac, and the term that was coined was \say{$z$-algebras}. We find this to be a somewhat confusing name, seeing how changing variables is common practice when dealing with formal distributions. As such, we have opted for the term \say{meromorphic (differential) algebras}.
+        \begin{definition}[Meromorphic algebras] \label{def: meromorphic_algebras}
+            Let $V$ be a vector space\footnote{... to be thought of as a vector space of quantum states/wave functions}. A \textbf{(non-unital) meromorphic algebra} structure on $V$ is then a linear map:
+                $$Y_z: V \to \End_k(V)[\![z^{\pm 1}]\!]$$
+            inducing a \say{multiplication}:
+                $$V^{\tensor 2} \to V[\![z^{\pm 1}]\!]$$
+            given for all $A, B \in V$ by $A \tensor B \mapsto Y_z(A) \cdot B$, with the RHS being interpreted as $\sum_{i \in \Z} (A_i B) z^{- i - 1}$, should we set $Y_z(A) := \sum_{i \in \Z} A_i z^{-i - 1}$.
+
+            A morphism of meromorphic algebras $(V, Y_z), (V', Y'_z)$ is a linear map between the underlying vector spaces:
+                $$\varphi: V \to V'$$
+            fitting into the following commutative diagram:
+                $$
+                    \begin{tikzcd}
+                	{V^{\tensor 2}} & {V[\![z^{\pm 1}]\!]} \\
+                	{V'^{\tensor 2}} & {V'[\![z^{\pm 1}]\!]}
+                	\arrow["{Y_z \tensor \id_V}", from=1-1, to=1-2]
+                	\arrow["{\varphi^{\tensor 2}}"', from=1-1, to=2-1]
+                	\arrow["{\varphi \tensor \id_{k[\![z^{\pm 1}]\!]}}", from=1-2, to=2-2]
+                	\arrow["{Y'_z \tensor \id_{V'}}", from=2-1, to=2-2]
+                    \end{tikzcd}
+                $$
+
+            A \textbf{meromorphic unit} in a meromorphic algebra $(V, Y_z)$ is a non-zero element $\1 \in V$ such that:
+                $$Y_z(\1) \cdot A \equiv Y_z(A) \cdot \1 \pmod{z V[\![z]\!]}$$
+            for all $A \in V$. In the presence of units, one insists also that meromorphic algebra morphisms map units to units.
+        \end{definition}
+        \begin{definition}[Meromorphic differential algebras] \label{def: meromorphic_differential_algebras}
+            Let $(V, Y_z)$ be a meromorphic algebra. A \textbf{meromorphic derivation} on $(V, Y_z)$ is then a linear map:
+                $$T: V[\![z^{\pm 1}]\!] \to V[\![z^{\pm 1}]\!]$$
+            such that:
+                $$Y_z( T(A) ) = \del_z Y_z(A)$$
+                $$T( Y_z(A) \cdot B ) = Y_z( T(A) ) \cdot B + Y_z(A) \cdot T(B)$$
+            A meromorphic algebra with such a meromorphic derivation is called a meromorphic differential algebra.
+        \end{definition}
+        \begin{definition}[Local meromorphic algebras] \label{def: local_meromorphic_algebras}
+            A meromorphic algebra $(V, Y_z)$ is said to be \textbf{local} if for any $A, B \in V$, the fields $Y_z(A), Y_z(B) \in \End_k(V)[\![z^{\pm 1}]\!]$ are mutually local in the sense of definition \ref{def: locality}.
+        \end{definition}
+
+        \begin{definition}[VOAs] \label{def: VOAs}
+            A \textbf{vertex (operator) algebra (VOA)} is a local unital meromorphic differential algebra.
+        \end{definition}
+
+    \subsection{Example 1: commutative VOAs}
+
+    \subsection{Example 2: VOAs attached to Lie algebras}
